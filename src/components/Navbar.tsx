@@ -1,100 +1,41 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu as MenuIcon, X } from 'lucide-react';
+import { ShoppingCart, MapPin } from 'lucide-react';
 import { useCart } from '../context/CartContext.tsx';
-import { motion, AnimatePresence } from 'motion/react';
 
 const Navbar = ({ onOpenCart }: { onOpenCart: () => void }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const { itemCount } = useCart();
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Menu', href: '/#menu' },
-    { name: 'About', href: '/#about' },
-    { name: 'Location', href: '/#location' },
-  ];
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link to="/" className="text-2xl font-bold tracking-tighter text-primary">
-            TOSS <span className="text-white">8</span>
-          </Link>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-md border-b border-border h-20 flex items-center shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="text-2xl md:text-3xl font-display tracking-tight hover:scale-105 transition-transform flex items-center gap-1">
+          <span className="text-primary font-black">TOSS</span>
+          <span className="bg-primary text-dark px-1.5 py-0.5 rounded-sm ml-0.5">8</span>
+        </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-            <button
-              onClick={onOpenCart}
-              className="relative p-2 rounded-full hover:bg-white/5 transition-colors"
-            >
-              <ShoppingCart className="w-6 h-6" />
-              {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-dark text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                  {itemCount}
-                </span>
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Actions */}
-          <div className="flex items-center md:hidden space-x-4">
-            <button
-              onClick={onOpenCart}
-              className="relative p-2 rounded-full hover:bg-white/5 transition-colors"
-            >
-              <ShoppingCart className="w-6 h-6" />
-              {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-dark text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                  {itemCount}
-                </span>
-              )}
-            </button>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-full hover:bg-white/5 transition-colors"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
-            </button>
-          </div>
+        {/* Location - Shown in center, text hidden on very small screens */}
+        <div className="flex items-center gap-2 bg-surface px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-border group cursor-pointer hover:border-primary/50 transition-all">
+          <MapPin className="w-3 h-3 md:w-4 md:h-4 text-primary group-hover:animate-bounce" />
+          <span className="text-[8px] md:text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-white line-clamp-1">
+            <span className="hidden xs:inline">DHA PHASE 6, </span>FAISALABAD
+          </span>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-darker border-b border-white/10"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-4 text-base font-medium border-b border-white/5 last:border-0"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Cart */}
+        <button
+          onClick={onOpenCart}
+          className="relative group p-2 md:p-3 rounded-2xl bg-surface border border-border hover:border-primary/50 transition-all active:scale-90"
+        >
+          <ShoppingCart className="w-5 h-5 md:w-6 h-6 text-primary" />
+          {itemCount > 0 && (
+            <span className="absolute -top-1.5 -right-1.5 bg-secondary text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full shadow-lg border-2 border-dark">
+              {itemCount}
+            </span>
+          )}
+        </button>
+      </div>
     </nav>
   );
 };
