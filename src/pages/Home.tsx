@@ -162,7 +162,7 @@ const Home = () => {
                     <p className="text-white font-bold text-lg">37, Green Avenue,<br/>FAISALABAD</p>
                 </div>
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
-                    <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Laboratory Hours</p>
+                    <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Open Hours</p>
                     <p className="text-white font-bold text-lg">11:00 AM<br/>TO 02:00 AM</p>
                 </div>
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">

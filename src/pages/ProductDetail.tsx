@@ -99,7 +99,6 @@ const ProductDetail = () => {
             </div>
 
             <div className="mb-12">
-               <span className="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] block mb-2">Base Experiment Yield</span>
                <div className="flex items-baseline gap-2">
                  <span className="text-5xl md:text-7xl font-black text-white">{formatPKR(item.price * qty)}</span>
                  {qty > 1 && <span className="text-gray-600 text-lg font-bold">({qty} units)</span>}
@@ -131,13 +130,9 @@ const ProductDetail = () => {
                   className="flex-grow bg-primary text-white py-4 md:py-0 px-10 rounded-full font-display text-3xl flex items-center justify-center gap-4 hover:scale-[1.02] transition-all transform active:scale-[0.98] shadow-2xl shadow-primary/30 uppercase"
                 >
                   <ShoppingCart className="w-8 h-8" />
-                  ADD TO BASKET
+                  ADD TO Cart
                 </button>
             </div>
-            
-            <p className="text-[10px] text-gray-600 font-bold uppercase tracking-widest">
-              * Precision tossed for optimal molecular satisfaction.
-            </p>
           </div>
         </div>
 
