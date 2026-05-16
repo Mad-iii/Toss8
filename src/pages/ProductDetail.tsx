@@ -14,6 +14,7 @@ const ProductDetail = () => {
   const [item, setItem] = useState<MenuItem | null>(null);
   const [relatedItems, setRelatedItems] = useState<MenuItem[]>([]);
   const [qty, setQty] = useState(1);
+  const [imgError, setImgError] = useState(false);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -51,74 +52,92 @@ const ProductDetail = () => {
   };
 
   if (!item) return (
-    <div className="min-h-screen flex items-center justify-center bg-dark">
-      <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+    <div className="min-h-screen flex items-center justify-center bg-dark text-primary">
+      <ShoppingCart className="w-12 h-12 animate-bounce" />
     </div>
   );
 
   return (
     <div className="min-h-screen bg-dark pt-20">
       <div className="max-w-7xl mx-auto px-4 pb-20">
-        <Link to="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-primary mb-8 group transition-colors">
+        <Link to="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-primary mb-12 group transition-colors">
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-bold uppercase tracking-widest text-xs">Back to Chemistry</span>
+          <span className="font-bold uppercase tracking-[0.3em] text-[10px]">Back to Laboratory</span>
         </Link>
 
         {/* Product UI */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="aspect-square rounded-[3rem] overflow-hidden border border-border shadow-2xl shadow-primary/5"
+            className="aspect-square rounded-[3rem] overflow-hidden border border-white/5 bg-surface shadow-2xl relative group"
           >
-            <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
+            {imgError ? (
+               <div className="w-full h-full flex flex-col items-center justify-center p-12 text-center bg-black/40">
+                  <span className="text-primary font-display text-5xl leading-none uppercase mb-4">{item.name}</span>
+                  <div className="w-12 h-1 bg-primary/20" />
+               </div>
+            ) : (
+               <img src={item.imageUrl} alt={item.name} onError={() => setImgError(true)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            )}
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
           </motion.div>
 
-          <div className="space-y-8">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black tracking-widest border border-primary/20 uppercase">
+          <div className="flex flex-col h-full justify-center">
+            <div className="mb-10">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] border border-primary/20 uppercase">
                   {item.category}
                 </span>
-                <span className="text-gray-500 font-mono text-[10px]">REACTION ID: {item.formula || 'F-000'}</span>
+                <div className="h-[1px] w-12 bg-white/10" />
+                <span className="text-gray-500 font-bold text-[10px] tracking-widest">FORMULA: {item.formula || 'F-EXP'}</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-display text-white mb-4 leading-none">{item.name}</h1>
-              <p className="text-gray-400 text-lg leading-relaxed">{item.description}</p>
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-display text-white mb-6 leading-[0.9] uppercase">{item.name}</h1>
+              <p className="text-gray-400 text-xl leading-relaxed italic border-l-4 border-primary/40 pl-6 max-w-xl">
+                {item.description}
+              </p>
             </div>
 
-            <div className="flex items-end gap-4">
-              <div className="flex flex-col gap-2">
-                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Base Cost</span>
-                <span className="text-4xl font-black text-primary">{formatPKR(item.price)}</span>
-              </div>
+            <div className="mb-12">
+               <span className="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] block mb-2">Base Experiment Yield</span>
+               <div className="flex items-baseline gap-2">
+                 <span className="text-5xl md:text-7xl font-black text-white">{formatPKR(item.price * qty)}</span>
+                 {qty > 1 && <span className="text-gray-600 text-lg font-bold">({qty} units)</span>}
+               </div>
             </div>
 
-            <div className="flex items-center gap-6 p-4 bg-surface border border-border rounded-3xl w-fit">
-               <span className="text-xs font-black uppercase tracking-widest px-2">Quantity</span>
-              <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 mb-8">
+                <div className="flex items-center justify-between gap-6 p-2 pr-6 bg-tertiary border border-white/5 rounded-full">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setQty(Math.max(1, qty - 1))}
+                      className="w-12 h-12 flex items-center justify-center rounded-full bg-black/40 hover:bg-primary hover:text-white transition-all active:scale-90 text-gray-400"
+                    >
+                      <Minus className="w-5 h-5" />
+                    </button>
+                    <span className="text-2xl font-display w-8 text-center text-white">{qty}</span>
+                    <button
+                      onClick={() => setQty(qty + 1)}
+                      className="w-12 h-12 flex items-center justify-center rounded-full bg-black/40 hover:bg-primary hover:text-white transition-all active:scale-90 text-gray-400"
+                    >
+                      <Plus className="w-5 h-5" />
+                    </button>
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-300">Set Batch Quantity</span>
+                </div>
+
                 <button
-                  onClick={() => setQty(Math.max(1, qty - 1))}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-dark border border-border hover:border-primary transition-all active:scale-90"
+                  onClick={handleAddToCart}
+                  className="flex-grow bg-primary text-white py-4 md:py-0 px-10 rounded-full font-display text-3xl flex items-center justify-center gap-4 hover:scale-[1.02] transition-all transform active:scale-[0.98] shadow-2xl shadow-primary/30 uppercase"
                 >
-                  <Minus className="w-4 h-4" />
+                  <ShoppingCart className="w-8 h-8" />
+                  ADD TO BASKET
                 </button>
-                <span className="text-2xl font-display w-8 text-center">{qty}</span>
-                <button
-                  onClick={() => setQty(qty + 1)}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-dark border border-border hover:border-primary transition-all active:scale-90"
-                >
-                  <Plus className="w-4 h-4" />
-                </button>
-              </div>
             </div>
-
-            <button
-              onClick={handleAddToCart}
-              className="w-full bg-primary text-dark py-6 rounded-[2rem] font-display text-3xl flex items-center justify-center gap-4 hover:bg-white transition-all transform active:scale-[0.98] shadow-lg shadow-primary/20"
-            >
-              <ShoppingCart className="w-8 h-8" />
-              ADD TO BASKET
-            </button>
+            
+            <p className="text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+              * Precision tossed for optimal molecular satisfaction.
+            </p>
           </div>
         </div>
 

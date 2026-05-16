@@ -7,8 +7,8 @@ const Navbar = ({ onOpenCart }: { onOpenCart: () => void }) => {
   const { itemCount } = useCart();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-md border-b border-border h-20 flex items-center shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-tertiary backdrop-blur-md border-b border-white/10 h-20 flex items-center shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 w-full flex justify-between items-center text-white">
         {/* Logo */}
         <Link to="/" className="text-2xl md:text-3xl font-display tracking-tight hover:scale-105 transition-transform flex items-center gap-1">
           <span className="text-primary font-black">TOSS</span>

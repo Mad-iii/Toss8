@@ -5,10 +5,11 @@
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Bebas Neue", sans-serif;
   
-  --color-primary: #e8ff00;
-  --color-secondary: #ff4500;
-  --color-dark: #0d0d0d;
-  --color-surface: #1a1a1a;
+  --color-primary: #E81E25;
+  --color-secondary: #000000;
+  --color-tertiary: #000000;
+  --color-dark: #000000;
+  --color-surface: #111111;
   --color-border: #2a2a2a;
 }
 

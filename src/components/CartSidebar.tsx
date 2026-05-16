@@ -35,46 +35,48 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-dark border-l border-white/10 z-[70] flex flex-col shadow-2xl"
           >
-            <div className="p-6 border-b border-white/10 flex justify-between items-center bg-darker">
-              <h2 className="text-xl font-bold flex items-center gap-2">
+            <div className="p-6 border-b border-white/10 flex justify-between items-center bg-tertiary shadow-xl">
+              <h2 className="text-2xl font-display text-white flex items-center gap-3 uppercase tracking-widest">
                 <ShoppingBag className="w-6 h-6 text-primary" />
-                Your Cart
+                Experiment Log
               </h2>
-              <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-full transition-colors">
-                <X className="w-6 h-6" />
+              <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors text-white">
+                <X className="w-7 h-7" />
               </button>
             </div>
 
-            <div className="flex-grow overflow-y-auto p-4 space-y-4">
+            <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-dark">
               {cart.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-8">
-                  <ShoppingBag className="w-16 h-16 text-white/10 mb-4" />
-                  <p className="text-gray-400">Your cart is empty.</p>
+                  <ShoppingBag className="w-16 h-16 text-white/5 mb-6" />
+                  <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mb-8">Flask is currently empty</p>
                   <button
                     onClick={onClose}
-                    className="mt-6 text-primary border border-primary/20 px-6 py-2 rounded-full hover:bg-primary hover:text-dark transition-all"
+                    className="bg-primary text-white px-10 py-3 rounded-full font-display text-xl uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-primary/20"
                   >
-                    Start Ordering
+                    Start Fusion
                   </button>
                 </div>
               ) : (
                 cart.map((item) => (
-                  <div key={item.id} className="flex gap-4 p-3 bg-white/5 rounded-2xl border border-white/5">
-                    <img src={item.imageUrl} alt={item.name} className="w-20 h-20 object-cover rounded-xl" />
+                  <div key={item.id} className="flex gap-4 p-4 bg-surface rounded-3xl border border-white/5 group">
+                    <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 border border-white/5">
+                        <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    </div>
                     <div className="flex-grow flex flex-col">
                       <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-medium">{item.name}</h4>
-                        <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:bg-red-500/10 p-1 rounded-lg">
+                        <h4 className="font-bold text-white uppercase tracking-tight leading-tight">{item.name}</h4>
+                        <button onClick={() => removeFromCart(item.id)} className="text-gray-600 hover:text-primary p-1 rounded-lg transition-colors">
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
                       <div className="flex justify-between items-end mt-auto">
-                        <div className="flex items-center gap-3 bg-dark p-1 rounded-lg border border-white/10">
-                          <button onClick={() => updateQty(item.id, -1)} className="p-1 hover:text-primary"><Minus className="w-4 h-4" /></button>
-                          <span className="text-sm font-bold w-4 text-center">{item.qty}</span>
-                          <button onClick={() => updateQty(item.id, 1)} className="p-1 hover:text-primary"><Plus className="w-4 h-4" /></button>
+                        <div className="flex items-center gap-4 bg-black/40 p-1.5 rounded-xl border border-white/5">
+                          <button onClick={() => updateQty(item.id, -1)} className="p-1 text-gray-500 hover:text-primary transition-colors"><Minus className="w-4 h-4" /></button>
+                          <span className="text-sm font-bold w-4 text-center text-white">{item.qty}</span>
+                          <button onClick={() => updateQty(item.id, 1)} className="p-1 text-gray-500 hover:text-primary transition-colors"><Plus className="w-4 h-4" /></button>
                         </div>
-                        <span className="font-bold text-primary">{formatPKR(item.price * item.qty)}</span>
+                        <span className="font-black text-primary">{formatPKR(item.price * item.qty)}</span>
                       </div>
                     </div>
                   </div>
@@ -83,19 +85,19 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
             </div>
 
             {cart.length > 0 && (
-              <div className="p-6 border-t border-white/10 bg-darker">
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-gray-400">Subtotal</span>
-                  <span className="text-2xl font-bold text-primary">{formatPKR(total)}</span>
+              <div className="p-8 border-t border-white/10 bg-tertiary shadow-reverse-xl">
+                <div className="flex justify-between items-center mb-8">
+                  <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Total Yield</span>
+                  <span className="text-3xl font-black text-white">{formatPKR(total)}</span>
                 </div>
                 <button
                   onClick={() => {
                     onClose();
                     navigate('/checkout');
                   }}
-                  className="w-full bg-primary text-dark py-4 rounded-2xl font-bold hover:bg-white transition-all transform active:scale-95"
+                  className="w-full bg-primary text-white py-5 rounded-[2rem] font-display text-3xl uppercase tracking-widest hover:scale-[1.02] transition-all transform active:scale-95 shadow-2xl shadow-primary/30"
                 >
-                  Proceed to Checkout
+                  FINAL REACTION
                 </button>
               </div>
             )}

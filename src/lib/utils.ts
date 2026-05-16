@@ -9,4 +9,5 @@ export const formatPKR = (amount: number) => {
   return `PKR ${amount.toLocaleString()}`;
 };
 
-export const WHATSAPP_NUMBER = "923000000000"; // Default
+export const WHATSAPP_NUMBER = "923111170558";
+export const DISPLAY_PHONE = "03111170558";
