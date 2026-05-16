@@ -226,7 +226,7 @@ const Checkout = () => {
             </div>
 
             <p className="text-center text-[10px] text-gray-500 font-bold uppercase tracking-[0.3em]">
-                Direct connection to lab technician. secure checkout.
+                Direct connection to our team. secure checkout.
             </p>
           </section>
         </div>
