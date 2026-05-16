@@ -111,9 +111,9 @@ const Home = () => {
             </a>
             <div className="flex-1 flex items-center justify-center gap-3 hover:bg-white/5 transition-colors">
                 <Clock className="w-5 h-5 text-primary" />
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-gray-300">11:00 PM - 02:00 AM</span>
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-gray-300">11:00 AM - 02:00 AM</span>
             </div>
-        </div>
+        </div>f
 
         {/* Global Search Results if searching */}
         {searchTerm && (
@@ -163,7 +163,7 @@ const Home = () => {
                 </div>
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Laboratory Hours</p>
-                    <p className="text-white font-bold text-lg">11:00 PM<br/>TO 02:00 AM</p>
+                    <p className="text-white font-bold text-lg">11:00 AM<br/>TO 02:00 AM</p>
                 </div>
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Direct Link</p>
