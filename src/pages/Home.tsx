@@ -93,7 +93,7 @@ const Home = () => {
                 <Clock className="w-5 h-5 text-primary" />
                 <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-gray-300">11:00 AM - 02:00 AM</span>
             </div>
-        </div>f
+        </div>
 
         {/* Global Search Results if searching */}
         {searchTerm && (
