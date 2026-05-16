@@ -111,7 +111,7 @@ const Home = () => {
             </a>
             <div className="flex-1 flex items-center justify-center gap-3 hover:bg-white/5 transition-colors">
                 <Clock className="w-5 h-5 text-primary" />
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-gray-300">12:00 PM - 02:00 AM</span>
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-gray-300">11:00 PM - 02:00 AM</span>
             </div>
         </div>
 
