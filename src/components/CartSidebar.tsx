@@ -38,7 +38,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
             <div className="p-6 border-b border-white/10 flex justify-between items-center bg-tertiary shadow-xl">
               <h2 className="text-2xl font-display text-white flex items-center gap-3 uppercase tracking-widest">
                 <ShoppingBag className="w-6 h-6 text-primary" />
-                Experiment Log
+                Cart
               </h2>
               <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors text-white">
                 <X className="w-7 h-7" />
@@ -87,7 +87,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
             {cart.length > 0 && (
               <div className="p-8 border-t border-white/10 bg-tertiary shadow-reverse-xl">
                 <div className="flex justify-between items-center mb-8">
-                  <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Total Yield</span>
+                  <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Total</span>
                   <span className="text-3xl font-black text-white">{formatPKR(total)}</span>
                 </div>
                 <button
@@ -97,7 +97,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
                   }}
                   className="w-full bg-primary text-white py-5 rounded-[2rem] font-display text-3xl uppercase tracking-widest hover:scale-[1.02] transition-all transform active:scale-95 shadow-2xl shadow-primary/30"
                 >
-                  FINAL REACTION
+                  Checkout
                 </button>
               </div>
             )}

@@ -81,21 +81,21 @@ const Checkout = () => {
       <div className="max-w-6xl mx-auto">
         <Link to="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-primary mb-12 transition-colors group">
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-bold uppercase tracking-[0.2em] text-[10px]">Continue Experimenting</span>
+          <span className="font-bold uppercase tracking-[0.2em] text-[10px]">Back To Cart</span>
         </Link>
 
         <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-display text-white mb-4 uppercase">Final Reaction</h1>
+            <h1 className="text-5xl md:text-7xl font-display text-white mb-4 uppercase">Checkout</h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-gray-500 font-bold uppercase tracking-[0.3em] text-xs">Verify your components before execution</p>
+            <p className="text-gray-500 font-bold uppercase tracking-[0.3em] text-xs">Intput Details Before Checkout</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Customer Form */}
           <section className="space-y-8">
             <div className="flex items-center justify-between border-b border-white/5 pb-6">
-                <h3 className="text-2xl font-display text-white uppercase tracking-widest">Technician Info</h3>
-                <span className="text-[10px] text-gray-500 font-black tracking-widest uppercase">Required for dispatch</span>
+                <h3 className="text-2xl font-display text-white uppercase tracking-widest">Info</h3>
+                <span className="text-[10px] text-gray-500 font-black tracking-widest uppercase">Required</span>
             </div>
 
             <div className="space-y-6">
@@ -164,7 +164,7 @@ const Checkout = () => {
           {/* Experiment Log (Order Summary) */}
           <section className="space-y-8">
             <div className="flex items-center justify-between border-b border-white/5 pb-6">
-                <h3 className="text-2xl font-display text-white uppercase tracking-widest">Experiment Log</h3>
+                <h3 className="text-2xl font-display text-white uppercase tracking-widest">Order Id</h3>
                 <span className="text-[10px] text-gray-500 font-black tracking-widest uppercase">ID: {Math.random().toString(36).substring(7).toUpperCase()}</span>
             </div>
 
@@ -193,11 +193,11 @@ const Checkout = () => {
                 </div>
                 
                 <div className="flex justify-between items-center text-gray-400 mb-4 font-bold uppercase tracking-widest text-[10px]">
-                    <span>Molecular Subtotal</span>
+                    <span>Subtotal</span>
                     <span>{formatPKR(total)}</span>
                 </div>
                 <div className="flex justify-between items-center text-gray-400 mb-10 pb-8 border-b border-white/10 font-bold uppercase tracking-widest text-[10px]">
-                    <span>Reaction Shipping</span>
+                    <span>Shipping</span>
                     <span className="text-primary tracking-normal">CALCULATED AT DISPATCH</span>
                 </div>
                 <div className="flex justify-between items-center">
