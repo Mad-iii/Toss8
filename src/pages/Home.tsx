@@ -86,21 +86,6 @@ const Home = () => {
                     />
                 </motion.div>
             </div>
-            
-            <div className="relative z-10 text-center px-4">
-                <motion.h1 
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display text-primary leading-tight uppercase"
-                >
-                    WOK-FIRED. STREET-BORN.<br/>FAISALABAD'S CHEMISTRY.
-                </motion.h1>
-                <div className="flex justify-center gap-3 mt-6">
-                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse delay-75" />
-                    <div className="w-2 h-2 rounded-full bg-primary/30 animate-pulse delay-150" />
-                </div>
-            </div>
         </section>
 
         {/* Info Bar */}
