@@ -162,7 +162,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Location</p>
-                    <p className="text-white font-bold text-lg">DHA PHASE 6,<br/>FAISALABAD</p>
+                    <p className="text-white font-bold text-lg">Green Avenue,<br/>FAISALABAD</p>
                 </div>
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Laboratory Hours</p>
