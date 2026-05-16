@@ -49,7 +49,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
               {cart.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-8">
                   <ShoppingBag className="w-16 h-16 text-white/5 mb-6" />
-                  <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mb-8">Flask is currently empty</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mb-8">Cart is currently empty</p>
                   <button
                     onClick={onClose}
                     className="bg-primary text-white px-10 py-3 rounded-full font-display text-xl uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-primary/20"
