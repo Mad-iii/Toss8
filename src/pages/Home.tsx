@@ -73,18 +73,13 @@ const Home = () => {
         <section className="relative h-[250px] md:h-[400px] flex items-center justify-center overflow-hidden bg-black">
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black z-10" />
-                <motion.div 
-                    initial={{ scale: 1.1 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-                    className="w-full h-full"
-                >
+                <div className="absolute inset-0 flex items-center justify-center z-20">
                     <img 
                         src="/images/Banner.png" 
                         alt="Hero background" 
                         className="w-full h-full object-cover opacity-50"
                     />
-                </motion.div>
+                </div>
             </div>
         </section>
 
