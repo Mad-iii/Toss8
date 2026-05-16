@@ -77,7 +77,7 @@ const Home = () => {
                     <img 
                         src="/images/Banner.png" 
                         alt="Hero background" 
-                        className="w-full h-full object-cover opacity-20"
+                        className="w-full h-full object-cover opacity-90"
                     />
                 </div>
             </div>
