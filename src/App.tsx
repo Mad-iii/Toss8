@@ -38,9 +38,9 @@ function AppContent() {
       <footer className="bg-darker py-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <img 
-            src="/images/Toss8_Text.png" 
+            src="/Toss8_Text.png" 
             alt="TOSS 8" 
-            className="mb-4 h-10 w-auto object-contain"
+            className="mb-4 h-20 w-auto object-contain mx-auto"
           />
           <p className="text-gray-500 text-sm">© 2026 Toss 8 Pakistan. All rights reserved.</p>
           <div className="flex justify-center gap-6 mt-6">
