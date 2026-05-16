@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Phone, Clock, Plus } from 'lucide-react';
+import { Phone, Clock } from 'lucide-react';
 import MenuCard from '../components/MenuCard.tsx';
 import CategoryFilterBar from '../components/CategoryFilterBar.tsx';
 import CategoryBanner from '../components/CategoryBanner.tsx';
 import { MENU_ITEMS } from '../data/menu.ts';
 
 const CATEGORIES = [
-  'Featured',
   'Wok Tossed Chicken with Fries',
   'Wok Tossed Beef',
   'Wok Tossed Noodles',
@@ -20,17 +19,10 @@ const CATEGORIES = [
 ];
 
 const Home = () => {
-    const [activeCategory, setActiveCategory] = useState('Featured');
+    const [activeCategory, setActiveCategory] = useState('Wok Tossed Chicken with Fries');
     const [searchTerm, setSearchTerm] = useState('');
 
-    const featuredItems = MENU_ITEMS.filter(item => item.featured);
-    
-    const filteredFeatured = featuredItems.filter(item => 
-        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.formula?.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    const categoriesData = CATEGORIES.filter(c => c !== 'Featured').map(category => ({
+    const categoriesData = CATEGORIES.map(category => ({
         name: category,
         id: category.toLowerCase().replace(/\s+/g, '-'),
         items: MENU_ITEMS.filter(item => 
@@ -41,7 +33,6 @@ const Home = () => {
         )
     }));
 
-    // Intersection Observer for sticky tab high-lighting
     useEffect(() => {
         const observerOptions = {
             root: null,
@@ -62,8 +53,7 @@ const Home = () => {
         const observer = new IntersectionObserver(handleIntersect, observerOptions);
         
         CATEGORIES.forEach(cat => {
-            const id = cat === 'Featured' ? 'featured' : cat.toLowerCase().replace(/\s+/g, '-');
-            const el = document.getElementById(id);
+            const el = document.getElementById(cat.toLowerCase().replace(/\s+/g, '-'));
             if (el) observer.observe(el);
         });
 
@@ -125,34 +115,6 @@ const Home = () => {
             </div>
         </div>
 
-        {/* Featured Section */}
-        <section id="featured" className="py-12 max-w-7xl mx-auto px-4">
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-4xl md:text-6xl font-display text-primary uppercase">Featured</h2>
-            <div className="flex-grow h-[1px] bg-primary/20" />
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {filteredFeatured.map(item => (
-                  <MenuCard
-                      key={item.id}
-                      id={item.id}
-                      name={item.name}
-                      description={item.description}
-                      price={item.price}
-                      imageUrl={item.imageUrl}
-                      variant="vertical"
-                      isFeatured={true}
-                  />
-              ))}
-              {filteredFeatured.length === 0 && (
-                <div className="col-span-full py-20 text-center text-gray-500 font-display text-2xl border-2 border-dashed border-white/5 rounded-3xl uppercase tracking-widest">
-                    NO REACTIONS DETECTED.
-                </div>
-              )}
-          </div>
-        </section>
-
         {/* Global Search Results if searching */}
         {searchTerm && (
             <div className="max-w-7xl mx-auto px-4 pb-12">
@@ -186,7 +148,7 @@ const Home = () => {
             )
         ))}
         
-        {/* Footer info */}
+        {/* Footer */}
         <footer className="bg-tertiary py-20 border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <div className="mb-12">
