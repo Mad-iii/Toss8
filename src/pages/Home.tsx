@@ -80,7 +80,7 @@ const Home = () => {
                     className="w-full h-full"
                 >
                     <img 
-                        src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?auto=format&fit=crop&q=80&w=1600" 
+                        src="/images/Banner.png" 
                         alt="Hero background" 
                         className="w-full h-full object-cover opacity-50"
                     />
