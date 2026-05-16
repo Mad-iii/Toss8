@@ -14,7 +14,7 @@ const Navbar = ({ onOpenCart }: { onOpenCart: () => void }) => {
         <img
           src="/images/Toss8_Text.png"
           alt="Toss8"
-          className="h-8 md:h-10 w-auto object-contain"
+          className="h-14 md:h-16 w-auto object-contain"
         />
       </Link>
 
