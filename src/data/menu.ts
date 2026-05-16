@@ -206,7 +206,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Spicy, saucy and fully coated. (6 pieces)',
     price: 950,
     category: 'Wok Tossed Wings',
-    imageUrl: '/images/Toss8_Chili_Wings.png',
+    imageUrl: '/images/TOSS8_Chili_Wings.png',
     available: true,
     formula: 'F-502'
   },
