@@ -155,30 +155,19 @@ const Home = () => {
                 <h3 className="text-4xl md:text-5xl font-display text-primary mb-4 uppercase tracking-widest">TOSS8 | WOK FRIES CHEMISTRY</h3>
                 <div className="w-20 h-1 bg-primary mx-auto" />
             </div>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-16 leading-relaxed font-medium">
-              Every dish is a precise reaction of fire, fusion, and flavor. Street-born physics meeting laboratory-grade execution.
-            </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Location</p>
-                    <p className="text-white font-bold text-lg">Green Avenue,<br/>FAISALABAD</p>
+                    <p className="text-white font-bold text-lg">37, Green Avenue,<br/>FAISALABAD</p>
                 </div>
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Laboratory Hours</p>
-                    <p className="text-white font-bold text-lg">12:00 PM<br/>TO 02:00 AM</p>
+                    <p className="text-white font-bold text-lg">11:00 PM<br/>TO 02:00 AM</p>
                 </div>
                 <div className="p-8 border border-white/5 rounded-3xl bg-black/20 backdrop-blur-sm">
                     <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4">Direct Link</p>
                     <p className="text-white font-bold text-lg underline decoration-primary underline-offset-8">03111170558</p>
-                </div>
-            </div>
-
-            <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-gray-600 font-bold uppercase tracking-[0.2em]">
-                <p>&copy; 2024 TOSS8 FOOD LAB. FUSION RE-ENGINEERED.</p>
-                <div className="flex gap-8">
-                    <a href="#" className="hover:text-primary transition-colors">Safety Protocol</a>
-                    <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
                 </div>
             </div>
           </div>

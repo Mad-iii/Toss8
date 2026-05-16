@@ -53,7 +53,7 @@ const CategoryFilterBar: React.FC<CategoryFilterBarProps> = ({
               >
                 <input
                   type="text"
-                  placeholder="Formula code or name..."
+                  placeholder=""
                   className="bg-black/20 border border-white/10 px-3 py-1 rounded-md text-xs outline-none focus:border-primary w-full text-white placeholder:text-gray-400"
                   onChange={(e) => onSearchChange(e.target.value)}
                   autoFocus

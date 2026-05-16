@@ -42,7 +42,7 @@ function AppContent() {
           <div className="flex justify-center gap-6 mt-6">
              <a href="#" className="text-gray-500 hover:text-white transition-colors">Terms</a>
              <a href="#" className="text-gray-500 hover:text-white transition-colors">Privacy</a>
-             <a href="#" className="text-gray-500 hover:text-white transition-colors">Instagram</a>
+             <a href="https://www.instagram.com/toss8pakistan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="text-gray-500 hover:text-white transition-colors">Instagram</a>
           </div>
         </div>
       </footer>
