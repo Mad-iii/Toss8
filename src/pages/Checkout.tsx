@@ -37,7 +37,9 @@ const Checkout = () => {
       message += `- ${item.name} x[${item.qty}] — ${formatPKR(item.price * item.qty)}\n`;
     });
     message += "━━━━━━━━━━━━━━━\n";
-    message += `💰 TOTAL: ${formatPKR(total)}\n`;
+    message += `💰 SUBTOTAL: ${formatPKR(total)}\n`;
+    message += `🧾 G.S.T (16%): ${formatPKR(Math.round(total * 0.16))}\n`;
+    message += `💰 TOTAL: ${formatPKR(Math.round(total * 1.16))}\n`;
     message += "━━━━━━━━━━━━━━━";
     
     return encodeURIComponent(message);
@@ -68,9 +70,9 @@ const Checkout = () => {
         <div className="w-24 h-24 bg-surface rounded-full flex items-center justify-center mb-8 border border-white/5">
             <ShoppingBag className="w-10 h-10 text-white/20" />
         </div>
-        <h2 className="text-3xl font-display text-white mb-6 uppercase tracking-widest">Flask is empty</h2>
+        <h2 className="text-3xl font-display text-white mb-6 uppercase tracking-widest">Cart is empty</h2>
         <Link to="/" className="bg-primary text-white px-10 py-4 rounded-full font-display text-xl uppercase tracking-widest hover:scale-105 transition-transform">
-            Return to Lab
+            Return to Home
         </Link>
       </div>
     );
@@ -193,17 +195,21 @@ const Checkout = () => {
                 </div>
                 
                 <div className="flex justify-between items-center text-gray-400 mb-4 font-bold uppercase tracking-widest text-[10px]">
-                    <span>Subtotal</span>
-                    <span>{formatPKR(total)}</span>
-                </div>
-                <div className="flex justify-between items-center text-gray-400 mb-10 pb-8 border-b border-white/10 font-bold uppercase tracking-widest text-[10px]">
-                    <span>Shipping</span>
-                    <span className="text-primary tracking-normal">CALCULATED AT DISPATCH</span>
-                </div>
-                <div className="flex justify-between items-center">
-                    <span className="text-2xl md:text-3xl font-display text-white uppercase tracking-[0.2em]">Total Bill</span>
-                    <span className="text-4xl md:text-6xl font-black text-primary">{formatPKR(total)}</span>
-                </div>
+                  <span>Subtotal</span>
+                  <span>{formatPKR(total)}</span>
+              </div>
+              <div className="flex justify-between items-center text-gray-400 mb-4 font-bold uppercase tracking-widest text-[10px]">
+                  <span>G.S.T (16%)</span>
+                  <span>{formatPKR(Math.round(total * 0.16))}</span>
+              </div>
+              <div className="flex justify-between items-center text-gray-400 mb-10 pb-8 border-b border-white/10 font-bold uppercase tracking-widest text-[10px]">
+                  <span>Shipping</span>
+                  <span className="text-primary tracking-normal">CALCULATED AT DISPATCH</span>
+              </div>
+              <div className="flex justify-between items-center">
+                  <span className="text-2xl md:text-3xl font-display text-white uppercase tracking-[0.2em]">Total Bill</span>
+                  <span className="text-4xl md:text-6xl font-black text-primary">{formatPKR(Math.round(total * 1.16))}</span>
+              </div>
             </div>
 
             {/* Action Buttons */}

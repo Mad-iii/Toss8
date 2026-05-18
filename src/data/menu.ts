@@ -266,7 +266,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'deal-1',
     name: 'Deal 1 Chicken Combo',
-    description: '1 Chicken With Fries + 1 Chicken with Sticky Rice + 1 Half Litre Drink',
+    description: '1 Kung Pao Chicken & Fries • 1 Chicken Manchurian With Rice • 1 Half Litre Drink',
     price: 2100,
     category: 'Deals',
     imageUrl: '/images/Deal_1_Chicken_Combo.png',
@@ -277,7 +277,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'deal-2',
     name: 'Deal 2 Beef & Noodles Combo',
-    description: '1 Wok Tossed Beef + 1 Wok Tossed Noodles + 1 Half Litre Drink',
+    description: '1 Beef Chilli Dry & Fries • 1 Chicken Noodles • 1 Half Litre Drink',
     price: 2350,
     category: 'Deals',
     imageUrl: '/images/Deal_2_Beef_And_Noodles_Combo.png',
@@ -287,7 +287,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'deal-3',
     name: 'Deal 3 Ultimate Snack Combo',
-    description: '1 Wok Tossed Noodles + 1 Bowl of Dumplings + 1 Wok Tossed Wings + 1 Litre Drink',
+    description: '1 Chicken Noodles • 1 Kung Pao Dumplings • 1 TOSS8 Chilli Wings • 1 Litre Drink',
     price: 3050,
     category: 'Deals',
     imageUrl: '/images/Deal_3_Ultimate_Snack_Combo.png',
@@ -297,7 +297,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'deal-4',
     name: 'Deal 4 Loaded Combo',
-    description: '1 Chicken With Fries + 1 Chicken with Sticky Rice + 1 Wok Tossed Beef + 1 Litre Drink',
+    description: '1 Kung Pao Chicken & Fries • 1 Chicken Manchurian With Rice • 1 Beef Chilli Dry & Fries • 1 Litre Drink',
     price: 3300,
     category: 'Deals',
     imageUrl: '/images/Deal_4_Loaded_Combo.png',
@@ -307,7 +307,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'deal-5',
     name: 'Deal 5 Family Combo',
-    description: '1 Chicken With Fries + 1 Chicken with Sticky Rice + 1 Wok Tossed Beef + 1 Bowl of Dumplings + 1.5 Litre Drink',
+    description: '1 Kung Pao Chicken & Fries • 1 Chicken Manchurian With Rice • 1 Beef Chilli Dry & Fries • 1 TOSS8 Chilli Dumplings • 1 1.5 Litre Drink',
     price: 4350,
     category: 'Deals',
     imageUrl: '/images/Deal_5_Family_Combo.png',

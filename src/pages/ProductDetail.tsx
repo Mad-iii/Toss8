@@ -89,13 +89,22 @@ const ProductDetail = () => {
                 <span className="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] border border-primary/20 uppercase">
                   {item.category}
                 </span>
-                <div className="h-[1px] w-12 bg-white/10" />
-                <span className="text-gray-500 font-bold text-[10px] tracking-widest">FORMULA: {item.formula || 'F-EXP'}</span>
-              </div>
+
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-display text-white mb-6 leading-[0.9] uppercase">{item.name}</h1>
-              <p className="text-gray-400 text-xl leading-relaxed italic border-l-4 border-primary/40 pl-6 max-w-xl">
-                {item.description}
-              </p>
+              {item.category === 'Deals' ? (
+                <ul className="border-l-4 border-primary/40 pl-6 max-w-xl space-y-2">
+                  {item.description.split(' • ').map((line, i) => (
+                    <li key={i} className="text-gray-400 text-lg flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-gray-400 text-xl leading-relaxed italic border-l-4 border-primary/40 pl-6 max-w-xl">
+                  {item.description}
+                </p>
+              )}
             </div>
 
             <div className="mb-12">
@@ -122,7 +131,7 @@ const ProductDetail = () => {
                       <Plus className="w-5 h-5" />
                     </button>
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-300">Set Batch Quantity</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-300">Quantity</span>
                 </div>
 
                 <button
